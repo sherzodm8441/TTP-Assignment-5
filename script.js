@@ -8,6 +8,7 @@ function addRow(){ //add a row when called
         //create a new div element with the class attribute of "box"
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
+        newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
 
         //append the div element to the end of every row, effectively creating a new row
         item.append(newDiv)
@@ -53,6 +54,7 @@ function addColumn(){ //adds a column when called
         //create a new div element with the class attribute of "box"
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
+        newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
 
         //append the div element to the end of every column
         newCol.append(newDiv)
@@ -77,7 +79,7 @@ function removeColumn(){ //removes a column when called
 
 ////////////////////////////////////////////////////////////////////////
 
-// The below code is used to retrieve the current color the user has selected
+// The code below is used to retrieve the current color the user has selected
 // using the dropdown box. The value is stored in the let variable "selectedColor"
 // Saving into a variable will help save on performance since we won't need to 
 // communicate with the DOM as often. 
@@ -91,3 +93,21 @@ const setColor = (event) => {
 
 colorSelectorEl.addEventListener("change", setColor)
 
+
+////////////////////////////////////////////////////////////////////////
+
+// The code below is a function that sets the backgroundColor CSS property
+// of a cell.
+
+
+// When an event calls this function, it passes an event object
+// Through this object, we can access the element by event.target
+
+function setCellColor(event) {
+    
+    // Set the background color of the element to the user-selected color
+    event.target.style.backgroundColor = selectedColor;
+
+}
+
+////////////////////////////////////////////////////////////////////////
