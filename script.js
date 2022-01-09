@@ -1,4 +1,5 @@
 
+
 function addRow(){ //add a row when called
     //grab all the existing columns
     const colEls = document.getElementsByClassName('column')
