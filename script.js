@@ -111,3 +111,21 @@ function setCellColor(event) {
 }
 
 ////////////////////////////////////////////////////////////////////////
+
+// The code below is a function that goes through each cell in the grid.
+// For each cell, it checks if its background color property is transparent
+// If it is, it sets the color of it to the currently selected color.
+
+function fillUncoloredCells() {
+    // grab existing boxes
+    const boxEls = document.getElementsByClassName('box')
+
+    // loop through each box and set color if transparent
+    for (box of boxEls) {
+        const currentColor = getComputedStyle(box).backgroundColor // returns rgba(0, 0, 0, 0) if transparent
+
+        if (currentColor === "rgba(0, 0, 0, 0)") 
+            box.style.backgroundColor = selectedColor
+    }
+
+}
