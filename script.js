@@ -16,11 +16,14 @@ function addRows(){
 }
 
 function removeRows(){
+    //grab all the existing columns
     const colEls = document.getElementsByClassName('column')
 
 
     for(let item of colEls){
+        //in each column...
         const div = item.getElementsByClassName('box')
+        //...remove the last box div, effectively removing a row
         div[div.length - 1].remove()
     }
 }
