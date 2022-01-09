@@ -7,23 +7,27 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  
-    <div id='grid-board'>
-        <div class="box">R1C1</div>
-        <div class="box">R1C2</div>
-        <div class="box">R1C3</div>
-        <div class="box">R2C1</div>
-        <div class="box">R2C2</div>
-        <div class="box">R2C3</div>
-        <div class="box">R3C1</div>
-        <div class="box">R2C2</div>
-        <div class="box">R3C3</div>
+
+
+    <button onclick="addRow()" id="add-row">Add Row</button>
+    <button onclick="removeRow()" id="remove-row">Remove row</button>
+    <button onclick="addColumn()" id="add-column">Add Column</button>
+    <button onclick="removeColumn()" id="remove-column">Remove Column</button>
+    <div id='grid-board'>  
+
+      <!-- each "column class is a column" -->
+      <div class="column">
+        <!-- number of "box" divs determines the number of rows -->
+        <div class="box"></div>
+      </div>
+      <div class="column">
+        <div class="box"></div>
+      </div>
     </div>
 
-    <button id="addCol-btn">Add Column</button>
-    <button id="removeCol-btn">Remove Column</button>
+    
 
 
-    <script type="text/javascript" src="/script.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
