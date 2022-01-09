@@ -61,3 +61,11 @@ function addColumn(){ //adds a column when called
     grid.append(newCol)
 
 }
+
+function removeColumn(){ //removes a column when called
+    const grid = document.getElementById('grid-board')
+    const cols = grid.getElementsByClassName('column')
+    if(cols.length > 1){ ////makes sure theres at least one column remaining
+        cols[cols.length - 1 ].remove()
+    } 
+}
