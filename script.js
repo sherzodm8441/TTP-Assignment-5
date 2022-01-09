@@ -33,3 +33,31 @@ function removeRow(){ //removes a row when called
         
     }
 }
+
+
+function addColumn(){ //adds a column when called
+    //grab the grid
+    const grid = document.getElementById('grid-board')
+    //create a new div...
+    const newCol = document.createElement('div')
+    //...and indicate that it is a column
+    newCol.setAttribute('class', 'column')
+
+    //grab existing columns
+    const colEls = document.getElementsByClassName('column')
+    //check a column to find the number of boxes we need to append
+    const numOfBoxes = colEls[0].getElementsByClassName('box').length
+    
+
+    for(let i = 0; i < numOfBoxes; i++){
+        //create a new div element with the class attribute of "box"
+        const newDiv = document.createElement('div')
+        newDiv.setAttribute('class', "box")
+
+        //append the div element to the end of every column
+        newCol.append(newDiv)
+    }
+    //append the new column with the correct number of boxes to the grid
+    grid.append(newCol)
+
+}
