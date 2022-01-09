@@ -69,3 +69,25 @@ function removeColumn(){ //removes a column when called
         cols[cols.length - 1 ].remove()
     } 
 }
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+
+// The below code is used to retrieve the current color the user has selected
+// using the dropdown box. The value is stored in the let variable "selectedColor"
+// Saving into a variable will help save on performance since we won't need to 
+// communicate with the DOM as often. 
+
+const colorSelectorEl = document.getElementById("color-selector")
+let selectedColor = "transparent"
+
+const setColor = (event) => {
+    selectedColor = colorSelectorEl.value
+}
+
+colorSelectorEl.addEventListener("change", setColor)
+
