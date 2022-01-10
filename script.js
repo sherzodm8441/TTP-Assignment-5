@@ -129,3 +129,16 @@ function fillUncoloredCells() {
     }
 
 }
+
+
+function fillAllCells() {
+    // grab existing boxes
+    const boxEls = document.getElementsByClassName('box')
+
+    // loop through each box...
+    for (box of boxEls) {
+        //and set the color to the selected color 
+        box.style.backgroundColor = selectedColor
+    }
+
+}
