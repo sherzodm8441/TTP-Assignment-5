@@ -20,10 +20,24 @@
       <!-- each "column class is a column" -->
       <div class="column">
         <!-- number of "box" divs determines the number of rows -->
-        <div class="box" onClick="setCellColor(event)"></div>
+        <div 
+            class="box" 
+            onClick="setCellColor(event)" 
+            onmousedown="dragStart(event)" 
+            onmouseover="dropColors(event)"
+            onmouseup="dragEnd(event)"
+            >
+        </div>
       </div>
       <div class="column">
-        <div class="box" onClick="setCellColor(event)"></div>
+        <div 
+            class="box" 
+            onClick="setCellColor(event)" 
+            onmousedown="dragStart(event)" 
+            onmouseover="dropColors(event)"
+            onmouseup="dragEnd(event)"
+            >
+        </div>
       </div>
     </div>
 

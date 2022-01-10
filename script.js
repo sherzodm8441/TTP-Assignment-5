@@ -9,6 +9,9 @@ function addRow(){ //add a row when called
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
         newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
+        newDiv.addEventListener("mousedown", dragStart) // add event listener to record beginning of drag & drop
+        newDiv.addEventListener("mouseover", dropColors) // set color of box when mouse is held down
+        newDiv.addEventListener("mouseup", dragEnd) // add event listener to record ending of drag & drop
 
         //append the div element to the end of every row, effectively creating a new row
         item.append(newDiv)
@@ -54,7 +57,11 @@ function addColumn(){ //adds a column when called
         //create a new div element with the class attribute of "box"
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
-        newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
+        newDiv.addEventListener('click', setCellColor) // set color when clicked
+        newDiv.addEventListener("mousedown", dragStart) // record beginning box of drag & drop
+        newDiv.addEventListener("mouseover", dropColors) // set color of box when mouse is held down
+        newDiv.addEventListener("mouseup", dragEnd) // record ending box of drag & drop
+
 
         //append the div element to the end of every column
         newCol.append(newDiv)
@@ -128,4 +135,33 @@ function fillUncoloredCells() {
             box.style.backgroundColor = selectedColor
     }
 
+}
+
+////////////////////////////////////////////////////////////////////////
+
+
+// The below code is for the drag and drop feature
+
+const bodyEl = document.getElementsByTagName("body")
+bodyEl[0].addEventListener("mouseup", dragEnd) // record ending box of drag & drop
+
+// The above event listener is needed to prevent the event ending outside the div
+// Since in that case, we can't listen to it and the user can keep painting colors.
+
+let dragAndDrop = false
+
+function dragStart(event) {
+    dragAndDrop = true
+    event.target.style.backgroundColor = selectedColor
+}
+
+function dragEnd(event) {
+    dragAndDrop = false
+}
+
+function dropColors(event) {
+    if (dragAndDrop) {
+        console.log(event.target)
+        event.target.style.backgroundColor = selectedColor
+    }
 }
