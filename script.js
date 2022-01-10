@@ -164,4 +164,36 @@ function dropColors(event) {
         console.log(event.target)
         event.target.style.backgroundColor = selectedColor
     }
+// The code below is a function that goes through each cell in the grid.
+// For each cell, it sets the color to the selected color regardless of the current color of the cell
+
+
+function fillAllCells() {
+    // grab existing boxes
+    const boxEls = document.getElementsByClassName('box')
+
+    // loop through each box...
+    for (box of boxEls) {
+        //and set the color to the selected color 
+        box.style.backgroundColor = selectedColor
+    }
+
+}
+
+
+////////////////////////////////////////////////////////////////////////
+
+// The code below is a function that goes through each cell in the grid.
+// For each cell, it sets the color to transparent regardless of the current color of the cell
+
+function clearColors() {
+    // grab existing boxes
+    const boxEls = document.getElementsByClassName('box')
+
+    // loop through each box...
+    for (box of boxEls) {
+        //and set the color to transparent
+        box.style.backgroundColor = "transparent"
+    }
+
 }
