@@ -167,6 +167,7 @@ function dropColors(event) {
 // The code below is a function that goes through each cell in the grid.
 // For each cell, it sets the color to the selected color regardless of the current color of the cell
 
+}
 
 function fillAllCells() {
     // grab existing boxes
@@ -195,5 +196,4 @@ function clearColors() {
         //and set the color to transparent
         box.style.backgroundColor = "transparent"
     }
-
 }
