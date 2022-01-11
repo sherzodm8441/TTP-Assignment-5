@@ -1,6 +1,7 @@
 var colCounter = 1 // keeps count of number of columns
-var colMax = 10 // columns should not exceed 10 in order to fit on most windows
-const maxColMessage = document.getElementById("max-column-message")
+var colMax = 25 // columns should not exceed 25 in order to fit on most windows
+// const maxColMessage = document.getElementById("max-column-message")
+
 
 function addRow(){ //add a row when called
     //grab all the existing columns
@@ -45,7 +46,7 @@ function addColumn(){ //adds a column when called
 
     // return if max columns reached, otherwise increment by 1
     if (colCounter >= colMax) {
-        maxColMessage.innerText = "Maximum Columns Reached!"
+        reanimate()
         return
     }
     else
@@ -93,9 +94,6 @@ function removeColumn(){ //removes a column when called
         cols[cols.length - 1 ].remove()
     } 
 
-    // Sets text to empty to get rid of message
-    if (colCounter === colMax - 1)
-        maxColMessage.innerText = ""
 }
 
 
