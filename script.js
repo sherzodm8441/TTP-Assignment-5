@@ -1,4 +1,6 @@
-
+var colCounter = 1 // keeps count of number of columns
+var colMax = 10 // columns should not exceed 10 in order to fit on most windows
+const maxColMessage = document.getElementById("max-column-message")
 
 function addRow(){ //add a row when called
     //grab all the existing columns
@@ -8,9 +10,9 @@ function addRow(){ //add a row when called
         //create a new div element with the class attribute of "box"
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
-        newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
-        newDiv.addEventListener("mousedown", dragStart) // add event listener to record beginning of drag & drop
+        // newDiv.addEventListener('click', setCellColor) // add event listener to set color when clicked
         newDiv.addEventListener("mouseover", dropColors) // set color of box when mouse is held down
+        newDiv.addEventListener("mousedown", dragStart) // add event listener to record beginning of drag & drop
         newDiv.addEventListener("mouseup", dragEnd) // add event listener to record ending of drag & drop
 
         //append the div element to the end of every row, effectively creating a new row
@@ -40,6 +42,17 @@ function removeRow(){ //removes a row when called
 
 
 function addColumn(){ //adds a column when called
+
+    // return if max columns reached, otherwise increment by 1
+    if (colCounter >= colMax) {
+        maxColMessage.innerText = "Maximum Columns Reached!"
+        return
+    }
+    else
+        colCounter++
+
+    
+    
     //grab the grid
     const grid = document.getElementById('grid-board')
     //create a new div...
@@ -57,11 +70,11 @@ function addColumn(){ //adds a column when called
         //create a new div element with the class attribute of "box"
         const newDiv = document.createElement('div')
         newDiv.setAttribute('class', "box")
-        newDiv.addEventListener('click', setCellColor) // set color when clicked
-        newDiv.addEventListener("mousedown", dragStart) // record beginning box of drag & drop
+        // newDiv.addEventListener('click', setCellColor) // set color when clicked
         newDiv.addEventListener("mouseover", dropColors) // set color of box when mouse is held down
+        newDiv.addEventListener("mousedown", dragStart) // record beginning box of drag & drop
         newDiv.addEventListener("mouseup", dragEnd) // record ending box of drag & drop
-
+        
 
         //append the div element to the end of every column
         newCol.append(newDiv)
@@ -72,15 +85,18 @@ function addColumn(){ //adds a column when called
 }
 
 function removeColumn(){ //removes a column when called
+    
     const grid = document.getElementById('grid-board')
     const cols = grid.getElementsByClassName('column')
     if(cols.length > 1){ ////makes sure theres at least one column remaining
+        colCounter--
         cols[cols.length - 1 ].remove()
     } 
+
+    // Sets text to empty to get rid of message
+    if (colCounter === colMax - 1)
+        maxColMessage.innerText = ""
 }
-
-
-
 
 
 
@@ -95,6 +111,7 @@ const colorSelectorEl = document.getElementById("color-selector")
 let selectedColor = "transparent"
 
 const setColor = (event) => {
+    
     selectedColor = colorSelectorEl.value
 }
 
@@ -153,15 +170,18 @@ let dragAndDrop = false
 function dragStart(event) {
     dragAndDrop = true
     event.target.style.backgroundColor = selectedColor
+    console.log("mouse down")
 }
 
 function dragEnd(event) {
     dragAndDrop = false
+    console.log("mouse up")
 }
 
 function dropColors(event) {
+    console.log("mouse over")
     if (dragAndDrop) {
-        console.log(event.target)
+        console.log("mouse over set color")
         event.target.style.backgroundColor = selectedColor
     }
 // The code below is a function that goes through each cell in the grid.

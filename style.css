@@ -1,12 +1,57 @@
+/* RAINBOW TEXT!!! Credit to Rahul @ https://w3bits.com/rainbow-text/ */
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 25%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 body {
     margin: 0;
     color: white;
     background-color:darkcyan;
+    user-select: none;
 }
 
+h1 {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 100px;
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    text-align: center;
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 8s ease infinite;
+    width: 900px;
+}
+
+h2 {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+    color: red;
+}
 
 #grid-board{
+    margin: auto;
+    margin-top: 25px;
+    padding: 50px;
     display: flex;
+    justify-content: center;
+    height: 90%;
+    width: 90%;
+    /* border: solid 5px rgb(205, 217, 255) */
 }
 
 .box{
@@ -17,11 +62,44 @@ body {
 }
 
 
+.buttons {
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    width: 1400px;
+}
+
+
 button {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
     border-style: none;
-    background-color: rgb(51, 180, 255);
-    color: white
+    background: linear-gradient(120deg, rgb(6, 112, 173) 20%, rgb(51, 180, 255) 100%);
+    box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 25px;
+}
+
+button:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.selectColor {
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 900px;
+}
+
+.selectColor label {
+    font-size: 25px;
+}
+
+.selectColor select {
+    border-radius: 25px;
+    border-style: none;
+    font-size: 20px;
+    margin-left: 5px;
+    padding: 5px
 }
