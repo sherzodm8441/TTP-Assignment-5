@@ -14,6 +14,11 @@
 }
 
 
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 body {
     margin: 0;
     color: white;
@@ -22,17 +27,17 @@ body {
 }
 
 h1 {
-    margin: 50px auto;
-    text-align: center;
+    margin: 30px auto 0;
+    width: 900px;
     font-size: 100px;
-    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
     text-align: center;
+
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
     background-size: 800% 800%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbow 8s ease infinite;
-    width: 900px;
 }
 
 h2 {
@@ -43,22 +48,26 @@ h2 {
     color: red;
 }
 
+.fadeOut {
+    animation: fadeOut 3s linear;
+    animation-delay: 2s;
+}
+
 #grid-board{
     margin: auto;
-    margin-top: 25px;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
+    padding: 25px;
     height: 90%;
     width: 90%;
-    /* border: solid 5px rgb(205, 217, 255) */
+
+    display: flex;
+    justify-content: center;
 }
 
 .box{
-    border: black 1px solid;
+    border: black 5px solid;
     margin:0; 
-    height: 100px;
-    width: 100px;    
+    height: 50px;
+    width: 50px;    
 }
 
 
@@ -75,8 +84,8 @@ button {
     padding: 10px;
     border-radius: 10px;
     border-style: none;
-    background: linear-gradient(120deg, rgb(6, 112, 173) 20%, rgb(51, 180, 255) 100%);
-    box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, rgb(6, 112, 173) 20%, rgb(51, 180, 255) 100%);
+    box-shadow: -10px 10px 5px 5px rgba(0, 0, 0, 0.1);
     color: white;
     font-size: 25px;
 }
